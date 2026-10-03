@@ -7,7 +7,7 @@ export const PaperMonographReader: React.FC = () => {
   const [copied, setCopied] = useState<boolean>(false);
 
   const copyDoi = () => {
-    navigator.clipboard.writeText('10.5281/zenodo.23057494');
+    navigator.clipboard.writeText('10.5281/zenodo.23116082');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -132,7 +132,15 @@ export const PaperMonographReader: React.FC = () => {
               <span className="italic">Aghora Abraham Global LLC</span>
             </div>
             <div className="font-mono text-[11px] text-amber-400">
-              Preprint DOI: 10.5281/zenodo.23057494
+              <a
+                href="https://doi.org/10.5281/zenodo.23116082"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:underline inline-flex items-center gap-1 font-semibold"
+              >
+                Preprint DOI: 10.5281/zenodo.23116082
+                <ExternalLink className="w-3 h-3" />
+              </a>
             </div>
             <div className="text-[11px] text-zinc-500">September 30, 2026</div>
           </div>

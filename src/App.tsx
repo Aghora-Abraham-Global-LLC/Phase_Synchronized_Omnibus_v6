@@ -13,11 +13,10 @@ import { BraidDFAView } from './components/BraidDFAView';
 import { WaveformOscilloscope } from './components/WaveformOscilloscope';
 import { ValidationSuiteView } from './components/ValidationSuiteView';
 import { PaperMonographReader } from './components/PaperMonographReader';
-import { CloudflareDeployModal } from './components/CloudflareDeployModal';
 import { vecAdd, vecNorm, vecScale, vecZero } from './physics/mathUtils';
 
 export function App() {
-  const [activeTab, setActiveTab] = useState<'workstation' | 'validation' | 'paper' | 'cloudflare'>('workstation');
+  const [activeTab, setActiveTab] = useState<'workstation' | 'validation' | 'paper'>('workstation');
   const [selectedPreset, setSelectedPreset] = useState<SimulationPreset>(SIMULATION_PRESETS[0]);
   const [isRunning, setIsRunning] = useState<boolean>(true);
 
@@ -270,7 +269,6 @@ export function App() {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         simState={simState}
-        onOpenCloudflare={() => setActiveTab('cloudflare')}
       />
 
       {/* Main Content Area */}
@@ -340,25 +338,27 @@ export function App() {
 
         {/* LaTeX Monograph Viewer Tab */}
         {activeTab === 'paper' && <PaperMonographReader />}
-
-        {/* Cloudflare Subdomain Deployment Tab */}
-        {activeTab === 'cloudflare' && <CloudflareDeployModal />}
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-zinc-800/80 bg-[#07090e] py-4 text-center text-xs text-zinc-500 font-mono">
-        <div className="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-between gap-2">
-          <span>BhutaDamaraSena R&D Labs · Aghora Abraham Global LLC © 2026</span>
-          <span className="text-zinc-400">
-            Deployed at{' '}
-            <button
-              onClick={() => setActiveTab('cloudflare')}
-              className="text-amber-400 hover:text-amber-300 underline cursor-pointer"
+      <footer className="border-t border-zinc-800/80 bg-[#07090e] py-3.5 text-xs text-zinc-500 font-mono">
+        <div className="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-emerald-400" />
+            <span className="text-zinc-400 font-medium">BhutaDamaraSena R&D Labs · Aghora Abraham Global LLC © 2026</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="text-zinc-500">AMS 70H15 · 83C25</span>
+            <span className="text-zinc-700">|</span>
+            <a
+              href="https://doi.org/10.5281/zenodo.23116082"
+              target="_blank"
+              rel="noreferrer"
+              className="text-amber-400 hover:text-amber-300 underline font-semibold transition"
             >
-              pnautomata.bhutadamarasena.com
-            </button>
-          </span>
-          <span>Preprint DOI: 10.5281/zenodo.23057494</span>
+              DOI: 10.5281/zenodo.23116082
+            </a>
+          </div>
         </div>
       </footer>
     </div>
