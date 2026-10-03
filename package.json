@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "lint": "tsc --noEmit",
     "preview": "vite preview --host 0.0.0.0 --port 3000",
-    "deploy": "wrangler pages deploy dist --project-name=pnautomata --commit-dirty=true"
+    "deploy": "wrangler deploy",
+    "deploy:pages": "wrangler pages deploy dist --project-name=pnautomata --commit-dirty=true"
   },
   "engines": {
     "node": ">=20.0.0",
