@@ -1,0 +1,8 @@
+{
+  "name": "Phase-Synchronized Omnibus v6.0",
+  "description": "Interactive Relativistic Simulation & Verification Workstation for 5.0PN Christodoulou Memory, Contact Integrators, Riemannian Kuramoto Synchronization, and EOB-Braid Automata.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

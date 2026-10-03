@@ -1,0 +1,12 @@
+name = "pnautomata"
+compatibility_date = "2024-10-01"
+pages_build_output_dir = "./dist"
+
+# Route and custom domain configuration for Cloudflare
+# Subdomain: pnautomata.bhutadamarasena.com
+routes = [
+  { pattern = "pnautomata.bhutadamarasena.com/*", zone_name = "bhutadamarasena.com" }
+]
+
+[env.production]
+vars = { ENVIRONMENT = "production", APP_TITLE = "Phase-Synchronized Omnibus v6.0" }
